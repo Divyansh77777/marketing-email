@@ -35,7 +35,7 @@ app.post('/send-email', (req, res) => {
     });
 
     const senderName = 'Zexweb Technologies';
-    const senderEmail = 'developer1@zexweb.com';
+    const senderEmail = 'sales@zexweb.com';
 
 
 

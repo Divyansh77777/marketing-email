@@ -29,8 +29,8 @@ app.post('/send-email', (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: process.env.email,
-            pass: process.env.password,
+            user: `${process.env.email}`,
+            pass: `${process.env.password}`,
         },
     });
 

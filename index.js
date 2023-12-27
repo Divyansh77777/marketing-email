@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // POST endpoint to handle email submission
-app.post('/send-email', (req, res) => {
+app.post('/send-email',async (req, res) => {
     const { subject, emails } = req.body;
 
     // For demonstration purposes, log the received data
@@ -55,13 +55,22 @@ app.post('/send-email', (req, res) => {
         };
 
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.error('Error sending email:', error, receiver);
-            } else {
-                console.log('Email sent:', info.response, receiver);
-            }
-        });
+        // transporter.sendMail(mailOptions, (error, info) => {
+        //     if (error) {
+        //         console.error('Error sending email:', error, receiver);
+        //     } else {
+        //         console.log('Email sent:', info.response, receiver);
+        //     }
+        // });
+
+
+        try {
+            console.log('Transporter Configuration:', transporter.options);
+            const info = await transporter.sendMail(mailOptions);
+            console.log('Email sent:', info.response, receiver);
+        } catch (error) {
+            console.error('Error sending email:', error, receiver);
+        }
 
 
     };

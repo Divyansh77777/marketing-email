@@ -33,13 +33,14 @@ app.post('/send-email', (req, res) => {
             pass: `${process.env.password}`,
         },
     });
-
+    
     const senderName = 'Zexweb Technologies';
     const senderEmail = 'sales@zexweb.com';
-
-
-
+    
+    
+    
     for (const receiver of emails) {
+        console.log("1")
 
         const mailOptions = {
             from: `"ZexWeb Technologies" <${senderEmail}>`,

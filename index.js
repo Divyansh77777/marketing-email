@@ -72,5 +72,5 @@ app.post('/send-email', (req, res) => {
 
 // Start the server
 app.listen(process.env.port, () => {
-    console.log(`Server is running on http://localhost:`+process.env.port);
+    console.log(`Server is running on http://localhost:`+ process.env.port);
 });

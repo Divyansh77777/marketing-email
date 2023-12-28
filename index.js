@@ -37,9 +37,9 @@ app.post('/send-email',async (req, res) => {
     const senderName = 'Zexweb Technologies';
     const senderEmail = 'sales@zexweb.com';
     
+    const emailArray = emails.split('\n').map(email => email.replace(/"/g, '').trim());
     
-    
-    for (const receiver of emails) {
+    for (const receiver of emailArray) {
         console.log("1")
 
         const mailOptions = {
